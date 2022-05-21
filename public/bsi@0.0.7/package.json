@@ -1,0 +1,18 @@
+{
+  "name": "bsi",
+  "version": "0.0.7",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renbaoshuo/bsi.git"
+  },
+  "author": {
+    "name": "Ren Baoshuo",
+    "email": "i@baoshuo.ren",
+    "url": "https://baoshuo.ren"
+  },
+  "icon": "/favicon/128x128.png",
+  "jsdelivr": "/favicon/512x512.png"
+}
