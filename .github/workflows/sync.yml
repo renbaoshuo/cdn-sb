@@ -1,0 +1,24 @@
+name: Sync Repo
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  xtom-gitlab:
+    name: Sync
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Push to remote
+        run: |
+          git push --force "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.xtom.de/baoshuo/static-cdn.git"
+        env:
+          GIT_USERNAME: project_10_bot
+          GIT_PASSWORD: ${{ secrets.XTOM_GITLAB_SYNC_TOKEN }}
