@@ -1,0 +1,26 @@
+name: Update last updated marker
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  last-updated:
+    name: Update last updated marker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update last updated marker
+        run: echo "$(date -Iseconds)" > public/last-updated
+      - name: Commit
+        run: |
+          git config --global user.email "bot@baoshuo.dev"
+          git config --global user.name "BaoshuoBot"
+          git add .
+          git commit -m "chore: update last updated marker"
+      - name: Push
+        run: git push
